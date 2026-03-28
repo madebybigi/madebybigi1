@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DJ Ramoz | Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #c40000;
+      color: white;
+      padding: 18px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #ffd5d5;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffe1e1;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+        url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 20px;
+      color: #c40000;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border: none;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #c40000;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #990000;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #c40000;
+      border: 2px solid #c40000;
+    }
+
+    .btn-secondary:hover {
+      background: #c40000;
+      color: white;
+    }
+
+    .section {
+      padding: 70px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #c40000;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #555;
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      color: #c40000;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card-content p {
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #111;
+      margin-bottom: 15px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .about-text h3 {
+      color: #c40000;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+      color: #333;
+      font-size: 17px;
+    }
+
+    .newsletter {
+      background: #fafafa;
+      text-align: center;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    .newsletter form {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .newsletter input {
+      padding: 14px;
+      width: 320px;
+      max-width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #c40000;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        width: 100%;
+        display: none;
+        margin-top: 15px;
+      }
+
+      nav.active {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <div class="logo">DJ Ramoz<span>STORE</span></div>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#beats">Beats</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#newsletter">Subscribe</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Feel The Beat. Own The Sound.</h1>
+      <p>
+        Welcome to your DJ website — discover fresh mixes, trending beats,
+        premium sounds, and exclusive music collections.
+      </p>
+      <div class="hero-buttons">
+        <a href="#beats" class="btn btn-primary">Explore Beats</a>
+        <a href="#about" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="beats">
+    <div class="section-title">
+      <h2>Featured Beats</h2>
+      <p>Check out some of our hottest DJ tracks and sound packs.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1000&q=80" alt="Beat 1">
+        <div class="card-content">
+          <h3>Club Energy</h3>
+          <p>High-energy DJ beat perfect for nightlife, events, and party sets.</p>
+          <div class="price">$25</div>
+          <button class="btn btn-primary buy-btn">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=80" alt="Beat 2">
+        <div class="card-content">
+          <h3>Night Bass</h3>
+          <p>Deep bass and smooth rhythm designed for modern DJ performances.</p>
+          <div class="price">$30</div>
+          <button class="btn btn-primary buy-btn">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1000&q=80" alt="Beat 3">
+        <div class="card-content">
+          <h3>Festival Drop</h3>
+          <p>Powerful drops and festival vibes to make the crowd move.</p>
+          <div class="price">$40</div>
+          <button class="btn btn-primary buy-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1571266028243-d220c9b66033?auto=format&fit=crop&w=1000&q=80" alt="DJ About">
+      <div class="about-text">
+        <h3>About Our DJ Store</h3>
+        <p>
+          We bring together quality beats, DJ tools, and premium sound experiences
+          for artists, performers, and music lovers.
+        </p>
+        <p>
+          Whether you are looking for club tracks, event mixes, sound packs,
+          or fresh DJ inspiration, this is the place for you.
+        </p>
+        <a href="#beats" class="btn btn-primary">Shop Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section newsletter" id="newsletter">
+    <div class="section-title">
+      <h2>Subscribe For Updates</h2>
+      <p>Get the latest beats, drops, and DJ news directly to your inbox.</p>
+    </div>
+
+    <form id="subscribeForm">
+      <input type="email" id="emailInput" placeholder="Enter your email" required />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </section>
+
+  <footer id="footer">
+    <p><strong>DJ Ramoz</strong></p>
+    <p>Classic beats. Premium sound. Real energy.</p>
+    <p>&copy; 2026 DJ Ramoz. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    const buyButtons = document.querySelectorAll(".buy-btn");
+    buyButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        alert("This beat has been added to your interest list.");
+      });
+    });
+
+    const subscribeForm = document.getElementById("subscribeForm");
+    subscribeForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("emailInput").value.trim();
+
+      if (email) {
+        alert("Thanks for subscribing, " + email + "!");
+        subscribeForm.reset();
+      } else {
+        alert("Please enter your email.");
+      }
+    });
+  </script>
+
+</body>
+</html>
